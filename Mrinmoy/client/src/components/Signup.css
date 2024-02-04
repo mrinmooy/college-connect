@@ -1,0 +1,62 @@
+/* SignupPage.css */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../public/bkg2.jpg'); /* Path to your JPG background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center bottom; /* Center the background image */ 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ }
+  
+ .signup-box {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly transparent background */
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .signup-box h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the form fields */
+  .signup-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .signup-box form label {
+    margin-bottom: 2px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .signup-box form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 2px; /* Space between each input */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded input fields */
+  }
+  
+  .signup-box form button {
+    width: 100%;
+    padding: 8px;
+    background-color: rgba(167, 22, 199, 0.895);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .signup-box form button:hover {
+    background-color: rgba(118, 4, 143, 0.895);
+  }
+  

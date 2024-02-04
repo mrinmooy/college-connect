@@ -1,0 +1,26 @@
+/* Global reset and body styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+  }
+  
+  
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    background-image: url('../../public/bkg3.jpg'); /* Path to your JPG background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center bottom; /* Center the background image */
+    
+  }
+  
+  

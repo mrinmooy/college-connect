@@ -1,0 +1,10 @@
+/* Navbar.css */
+.navbar {
+    font-family: 'Bahnschrift Condensed', sans-serif;
+  }
+  
+  /* Optionally, if you want to apply the font only to the nav links */
+  .nav-link {
+    font-family: 'Bahnschrift Condensed', sans-serif;
+  }
+  
