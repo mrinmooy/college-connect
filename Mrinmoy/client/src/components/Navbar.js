@@ -21,14 +21,14 @@ function Navbar() {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav ms-auto">
+        <ul className="navbar-nav mx-auto">
           <li className="nav-item">
             {/* Use activeClassName to specify a class that gets added when the link is active */}
             {/* Or use the `style` prop with a function that returns the activeStyle if isActive is true */}
             <NavLink className="nav-link" exact to="/" style={({ isActive }) => isActive ? activeStyle : null}>Home</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/About" style={({ isActive }) => isActive ? activeStyle : null}>About Us</NavLink>
+            <NavLink className="nav-link" to="/About" style={({ isActive }) => isActive ? activeStyle : null}>About Me</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/Contact" style={({ isActive }) => isActive ? activeStyle : null}>Contact</NavLink>

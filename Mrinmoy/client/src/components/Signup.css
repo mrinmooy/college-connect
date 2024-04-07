@@ -1,62 +1,99 @@
-/* SignupPage.css */
+@import url("https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
+
 .signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('../../public/bkg2.jpg'); /* Path to your JPG background image */
-    background-size: cover; /* Cover the entire area */
-    background-position: center bottom; /* Center the background image */ 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  background-image: url('../../public/bkg5.jpeg'); /* Path to your background image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center bottom; /* Center the background image */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 20px;
+}
+
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-top: 200px;
   
- .signup-box {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: rgba(255, 255, 255, 0.6); /* Slightly transparent background */
-    text-align: center;
-    border-radius: 10px; /* Rounded corners */
-  }
+}
+
+.sign-up .container {
+  background-color: rgba(255,255,255,0.8);
+  padding-top: 20px;
+  padding-left: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  padding-bottom: 0;
+  margin-bottom: 500px;
+  padding-right: 0;
+  max-width: 450px;
   
-  .signup-box h2 {
-    margin-bottom: 20px;
-  }
+}
+
+.signup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group input {
+  width: 300px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   
-  /* Style the form fields */
-  .signup-box form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .signup-box form label {
-    margin-bottom: 2px;
-    width: 100%;
-    text-align: left;
-  }
-  
-  .signup-box form input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 2px; /* Space between each input */
-    border: 1px solid #ccc;
-    border-radius: 5px; /* Rounded input fields */
-  }
-  
-  .signup-box form button {
-    width: 100%;
-    padding: 8px;
-    background-color: rgba(167, 22, 199, 0.895);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .signup-box form button:hover {
-    background-color: rgba(118, 4, 143, 0.895);
-  }
-  
+}
+
+
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  width: 25%;
+  text-align: left;
+  padding-right: 100px;
+}
+
+
+.form-submit {
+  display: block; /* Ensures the button is a block-level element, which respects margin: 0 auto; */
+  /* width: auto; Allows the button to shrink/grow based on its content and padding */
+  max-width: 100px; /* Example max-width to prevent the button from becoming too wide */
+  margin: 0 auto; /* Centers the button and adds some vertical space */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center; /* Ensures text within the button is centered */
+  margin-top: 10px;
+}
+
+
+.form-submit:hover {
+  background-color: #0056b3;
+}
+
+h4.form-title {
+  text-align: center; /* Center the form title */
+  margin-bottom: 20px; /* Add some space below the title */
+}

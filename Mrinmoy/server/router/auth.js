@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
+const authenticate = require('../middleware/authenticate')
+
 
 require('../db/conn');
 const User = require('../model/userSchema');
@@ -85,12 +87,11 @@ router.post('/signin', async(req,res)=>{
            const isMatch = await bcrypt.compare(password,userLogin.password);
            
              token = await userLogin.generateAuthToken();
-            //console.log(token);
+            console.log(token);
 
-            // res.cookie("jwtoken",token,{
-            //     expires: new Date(Date.now()+ 25892000000),
-            //     httpOnly: true
-            // })
+             res.cookie('jwtoken',token);
+             //res.cookie('fromme','hi');
+             //console.log('hii..');
 
            if(!isMatch){
             res.status(400).json({message: 'Invalid Credentials'});
@@ -106,6 +107,12 @@ router.post('/signin', async(req,res)=>{
         res.status(500).json({error: 'something went wrong'});
     }
 })
+
+
+router.get('/about', authenticate, (req,res)=>{
+    console.log('Hello my about');
+    res.send(req.rootUser);
+});
 
 
 module.exports = router;

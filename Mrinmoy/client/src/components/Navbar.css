@@ -1,10 +1,17 @@
 /* Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .navbar {
-    font-family: 'Bahnschrift Condensed', sans-serif;
-  }
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
   
   /* Optionally, if you want to apply the font only to the nav links */
   .nav-link {
-    font-family: 'Bahnschrift Condensed', sans-serif;
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 400;
+   font-style: normal;
   }
   

@@ -1,9 +1,18 @@
 const dotenv = require('dotenv')
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const app = express()
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
 
 app.use(express.json());
+const corsOptions = {
+    origin: "http://localhost:3000",
+    credentials: true
+}
+app.use(cors(corsOptions));
 
 // const middleware = (req,res,next)=>{
 //     console.log('this is middleware')
@@ -35,9 +44,9 @@ app.get('/contact',(req,res)=>{
     res.send('Hello from contact page');
 });
 
-app.get('/about', (req,res)=>{
-    res.send('Hello from about page');
-});
+// app.get('/about', (req,res)=>{
+//     res.send('Hello from about page');
+// });
 
 app.get('/signin',(req,res)=>{
     res.send('Hello from signin page');
