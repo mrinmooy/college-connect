@@ -110,9 +110,15 @@ router.post('/signin', async(req,res)=>{
 
 
 router.get('/about', authenticate, (req,res)=>{
-    console.log('Hello my about');
-    res.send(req.rootUser);
+    console.log('This is the about me page');
+    res.status(200).send(req.rootUser);
 });
+
+router.get('/logout',(req,res)=>{
+    console.log("you are in logout page now")
+    res.clearCookie("jwtoken",{path:'/'});
+    res.status(200).send("cleared stuff");
+})
 
 
 module.exports = router;

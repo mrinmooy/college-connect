@@ -14,14 +14,17 @@ function About() {
           },
           credentials: "include"
         });
-        const data = await res.json();
-        console.log(data);
-        if(!res.status===200){
-          const error = new Error(res.error);
-          throw error;
+        const response = await res;
+        if(response.status === 401){
+          console.log('user is probably not logged in');
+        }
+        else {
+          const data = response.json();
+          console.log(data);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
+        // console.log('user is probably not logged in');
       }
   }
 

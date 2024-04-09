@@ -4,6 +4,8 @@ import React, {useState} from 'react';
 
 import './Signup.css'; // Import your CSS file
 
+import { useNavigate } from 'react-router-dom';
+
 const Signup = () => {
 
   //const history = useHistory();
@@ -11,6 +13,8 @@ const Signup = () => {
   const [user,setUser] = useState({
     name:"", email:"", phone:"", work:"", password:"", cpassword:"",
   });
+
+  var navigate = useNavigate();
 
 
   let name, value;
@@ -46,6 +50,7 @@ const Signup = () => {
     }else{
       window.alert("Resgistration Successful");
       console.log("Resgistration Successful");
+      navigate('/login')
       //history.push("/login");
     }
 
