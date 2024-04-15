@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import './Login.css'
+// import './Login.css'
 import { UserContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,12 +28,13 @@ function Login() {
       })
     })
 
-    const data = res.json();
+    const data = await res.json();
 
     if(res.status===400 || !data){
       window.alert("Invalid Credentials")
     }else{
-      //console.log(data);
+      console.log(data);
+      localStorage.setItem("userInfo", JSON.stringify(data));
       dispatch({type:"USER", payload: true});
       window.alert("Login Successful")
       navigate('/')

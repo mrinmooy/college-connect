@@ -1,0 +1,6 @@
+.ChatPage{
+    /* background-image:  url('../../public/chatbackground.png'); */
+    background-image:  url('../../public/steampunkChat.jpg');
+    background-size:  cover;
+    background-position: center bottom;
+} 

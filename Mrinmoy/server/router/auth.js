@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
-const authenticate = require('../middleware/authenticate')
+const {Authenticate} = require('../middleware/authenticate')
 
 
 require('../db/conn');
 const User = require('../model/userSchema');
+const { allUsers } = require('../controllers/userController');
 
 
 router.get('/',(req,res)=>{
@@ -46,8 +47,8 @@ router.get('/',(req,res)=>{
 
 router.post('/register',async (req,res)=>{
 
-    const {name, email, phone, work, password, cpassword} = req.body;
-    if( !name || !email || !phone || !work || !password || !cpassword){
+    const {name, email, phone, password, cpassword} = req.body;
+    if( !name || !email || !phone ||  !password || !cpassword){
         return res.status(422).json({error: 'please fill all fields'});
     }
 
@@ -60,7 +61,7 @@ router.post('/register',async (req,res)=>{
             return res.status(422).json({error: "confirm password doesn't match password"});
         }
         else{
-            const user = new User({name, email, phone, work, password, cpassword});
+            const user = new User({name, email, phone,  password, cpassword});
             await user.save();
             res.status(201).json({message: 'user registered successfully'});
         }
@@ -97,7 +98,13 @@ router.post('/signin', async(req,res)=>{
             res.status(400).json({message: 'Invalid Credentials'});
            }
            else{
-            res.json({message: "user sign in successful"});
+            res.json({
+                _id: userLogin._id,
+                name: userLogin.name,
+                email: userLogin.email,
+                phone: userLogin.phone,
+                token: token,
+            });
            }
         }else{
             res.status(400).json({message: 'Invalid Credentials'});
@@ -109,8 +116,9 @@ router.post('/signin', async(req,res)=>{
 })
 
 
-router.get('/about', authenticate, (req,res)=>{
-    console.log('This is the about me page');
+router.get('/about', Authenticate, (req,res)=>{
+    // console.log(authenticate);
+    // console.log('This is the about me page');
     res.status(200).send(req.rootUser);
 });
 
@@ -119,6 +127,5 @@ router.get('/logout',(req,res)=>{
     res.clearCookie("jwtoken",{path:'/'});
     res.status(200).send("cleared stuff");
 })
-
 
 module.exports = router;

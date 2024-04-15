@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 //import {useHistory} from 'react-router-dom';
 
-import './Signup.css'; // Import your CSS file
+// import './Signup.css'; // Import your CSS file
 
 import { useNavigate } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ const Signup = () => {
 
     e.preventDefault()
 
-    const {name, email, phone, work, password, cpassword} = user;
+    const {name, email, phone, password, cpassword} = user;
 
     const res = await fetch('http://localhost:5000/register', {
       method:"POST",
@@ -38,7 +38,7 @@ const Signup = () => {
         "Content-Type" : "application/json"
       },
       body: JSON.stringify({
-        name, email, phone, work, password, cpassword
+        name, email, phone, password, cpassword
       })
     })
 
@@ -111,7 +111,7 @@ const Signup = () => {
                 placeholder=" Your Phone No."/>
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="name">
                    Work:
                 </label>
@@ -120,7 +120,7 @@ const Signup = () => {
                 value={user.work}
                 onChange={handleInputs}
                 placeholder=" Your Profession"/>
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <label htmlFor="cpasswprd">

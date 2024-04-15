@@ -20,6 +20,7 @@ const Logout = () => {
             credentials: "include"
           });
           dispatch({type:'USER', payload: false})
+          localStorage.removeItem("userInfo");
           navigate('/login')
          
           if(res.status !==200){

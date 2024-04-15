@@ -19,13 +19,14 @@ function About() {
           console.log('user is probably not logged in');
         }
         else {
-          const data = response.json();
+          const data = await response.json();
           console.log(data);
         }
-      } catch (error) {
-        // console.log(error);
-        // console.log('user is probably not logged in');
-      }
+    } catch (error) {
+      // console.log(error);
+      // console.log('user is probably not logged in');
+    }
+    // console.log("hi about");
   }
 
 

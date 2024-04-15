@@ -1,8 +1,9 @@
-import {React, useContext} from 'react';
+import {React, useContext, useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import'./Navbar.css'
 import { NavLink } from 'react-router-dom';
 import { UserContext } from '../App';
+import Cookies from 'js-cookie';
 
 function Navbar() {
   // Define a custom active class style
@@ -15,10 +16,12 @@ function Navbar() {
   };
 
 const {state, dispatch}  =  useContext(UserContext);
+const [loading, setLoading] = useState(false);
+
 
   const RenderMenu = () => {
 
-    if(state){
+    if(localStorage.getItem("userInfo")){
 
       return(
         <>
@@ -28,7 +31,10 @@ const {state, dispatch}  =  useContext(UserContext);
             <NavLink className="nav-link" exact="true" to="/" style={({ isActive }) => isActive ? activeStyle : null}>Home</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/About" style={({ isActive }) => isActive ? activeStyle : null}>About Me</NavLink>
+            <NavLink className="nav-link" to="/About" style={({ isActive }) => isActive ? activeStyle : null}>My Profile</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/Chats" style={({ isActive }) => isActive ? activeStyle : null}>Chats</NavLink>
           </li>
           {/* <li className="nav-item">
             <NavLink className="nav-link" to="/Contact" style={({ isActive }) => isActive ? activeStyle : null}>Contact</NavLink>
@@ -43,6 +49,14 @@ const {state, dispatch}  =  useContext(UserContext);
     }else{
       return(
         <>
+          <li className="nav-item">
+            {/* Use activeClassName to specify a class that gets added when the link is active */}
+            {/* Or use the `style` prop with a function that returns the activeStyle if isActive is true */}
+            <NavLink className="nav-link" exact="true" to="/" style={({ isActive }) => isActive ? activeStyle : null}>Home</NavLink>
+          </li>
+            <li className="nav-item">
+            <NavLink className="nav-link" to="/Chats" style={({ isActive }) => isActive ? activeStyle : null}>Chats</NavLink>
+            </li>
           {/* <li className="nav-item">
             <NavLink className="nav-link" to="/Contact" style={({ isActive }) => isActive ? activeStyle : null}>Contact</NavLink>
           </li> */}
@@ -61,6 +75,27 @@ const {state, dispatch}  =  useContext(UserContext);
 
   }
 
+// useEffect(() => {
+//   const userToken = Cookies.get('jwtoken'); // Assuming 'userToken' is your cookie name
+//   if (userToken) {
+//     console.log('found');
+//     dispatch({ type: 'User_Logged_In', payload: true }); // Update your action and payload accordingly
+//   } else {
+//     dispatch({ type: 'User_Logged_Out', payload: false }); // Update your action accordingly
+//   }
+//   setLoading(false);
+// }, []);
+
+  // if(loading){
+  //   return(
+  //     <>
+  //       <div>
+  //         Loading...
+  //       </div>
+  //     </>
+  //   )
+  // }
+  // else{
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <NavLink className="navbar-brand" to="#"> </NavLink>
@@ -76,5 +111,6 @@ const {state, dispatch}  =  useContext(UserContext);
     </nav>
   );
 }
+// }
 
 export default Navbar;
