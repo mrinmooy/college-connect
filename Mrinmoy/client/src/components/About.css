@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full height of the viewport */
-    background-image: url('../../public/bkg4.jpg'); /* Path to your JPG background image */
+    background-image: url('../../public/aboutMe.jpg'); /* Path to your JPG background image */
     background-size: cover; /* Cover the entire area */
     background-position: center bottom; /* Center the background image */
     background-repeat: no-repeat;

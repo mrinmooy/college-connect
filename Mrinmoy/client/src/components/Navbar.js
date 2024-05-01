@@ -54,9 +54,9 @@ const [loading, setLoading] = useState(false);
             {/* Or use the `style` prop with a function that returns the activeStyle if isActive is true */}
             <NavLink className="nav-link" exact="true" to="/" style={({ isActive }) => isActive ? activeStyle : null}>Home</NavLink>
           </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
             <NavLink className="nav-link" to="/Chats" style={({ isActive }) => isActive ? activeStyle : null}>Chats</NavLink>
-            </li>
+            </li>*/}
           {/* <li className="nav-item">
             <NavLink className="nav-link" to="/Contact" style={({ isActive }) => isActive ? activeStyle : null}>Contact</NavLink>
           </li> */}
