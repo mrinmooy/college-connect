@@ -30,11 +30,14 @@ const [loading, setLoading] = useState(false);
             {/* Or use the `style` prop with a function that returns the activeStyle if isActive is true */}
             <NavLink className="nav-link" exact="true" to="/" style={({ isActive }) => isActive ? activeStyle : null}>Home</NavLink>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <NavLink className="nav-link" to="/About" style={({ isActive }) => isActive ? activeStyle : null}>My Profile</NavLink>
-          </li>
+          </li> */}
           <li className="nav-item">
             <NavLink className="nav-link" to="/Chats" style={({ isActive }) => isActive ? activeStyle : null}>Chats</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/Attendance" style={({ isActive }) => isActive ? activeStyle : null}>Webkiosk</NavLink>
           </li>
           {/* <li className="nav-item">
             <NavLink className="nav-link" to="/Contact" style={({ isActive }) => isActive ? activeStyle : null}>Contact</NavLink>
@@ -66,6 +69,9 @@ const [loading, setLoading] = useState(false);
           <li className="nav-item">
             <NavLink className="nav-link" to="/Signup" style={({ isActive }) => isActive ? activeStyle : null}>Registration</NavLink>
           </li>
+          {/* <li className="nav-item">
+            <NavLink className="nav-link" to="/Attendance" style={({ isActive }) => isActive ? activeStyle : null}>Webkiosk</NavLink>
+          </li> */}
 
         
         </>

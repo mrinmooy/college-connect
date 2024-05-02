@@ -8,6 +8,13 @@ import Contact from './components/Contact.js'
 import Login from './components/Login.js'
 import Signup from './components/Signup.js'
 import Logout from './components/Logout.js'
+// import Dashboard from './components/react_webkiosk/Dashboard.js';
+import Attendance from './components/react_webkiosk/Attendance.js';
+import Exam from './components/react_webkiosk/Exam.js';
+import Datesheet from './components/react_webkiosk/Datesheet.js';
+import Cgpa from './components/react_webkiosk/Cgpa.js';
+
+
 import { initialState, reducer } from './reducer/UseReducer.js';
 import ChatPage from './pages/ChatPage.js';
 import Cookies from 'js-cookie';
@@ -26,6 +33,10 @@ const Routing = () =>{
     {/* <Route path='contact' element={<Contact/>}/> */}
 
     <Route path='/chats' element={<ChatPage/>}/>
+    <Route path='/attendance' element={<Attendance/>}/>
+    <Route path='/exammarks' element={<Exam/>}/>
+    <Route path='/datesheet' element={<Datesheet/>}/>
+    <Route path='/cgpa' element={<Cgpa/>}/>
     
 
     <Route path='/login' element={<Login/>}/> 

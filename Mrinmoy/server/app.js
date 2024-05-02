@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const app = express()
 app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({extended: false}))  ;
 const userRoutes = require('./router/userRoutes');
 const chatRoutes = require('./router/chatRoutes');
 const messageRoutes = require('./router/messageRoutes');
@@ -38,6 +39,10 @@ app.use(cors(corsOptions));
     app.use("/api/user", userRoutes);
     app.use("/api/chat", chatRoutes);
     app.use("/api/message", messageRoutes);
+    app.use('/fetch', require('./router/fetch'));
+    app.use('/fetch-exam', require('./router/fetch-exam'));
+    app.use('/fetch-datesheet', require('./router/fetch-datesheet'));
+    app.use('/fetch-cgpa', require('./router/fetch-cgpa'));
 
 app.get('/',(req,res)=>{
     
@@ -65,47 +70,52 @@ const server = app.listen(PORT,()=>{
     console.log(`app.js is listening on port no. ${PORT}`);
 })
 
-const io = require("socket.io")(server, {
-    pingTimeout: 60000,
-    cors: {
-      origin: "http://localhost:3000",
-      // credentials: true,
-    },
-  });
+
+
+
+
+
+// const io = require("socket.io")(server, {
+//     pingTimeout: 60000,
+//     cors: {
+//       origin: "http://localhost:3000",
+//       // credentials: true,
+//     },
+//   });
   
-  io.on("connection", (socket) => {
-    console.log("Connected to socket.io");
-    socket.on("setup", (userData) => {
-    if(!userData || !userData._id){
-        console.log("returning from setup");
-        return;
-    }
-      socket.join(userData._id);
-      socket.emit("connected");
-    console.log("in setup");
-    });
+  // io.on("connection", (socket) => {
+  //   console.log("Connected to socket.io");
+  //   socket.on("setup", (userData) => {
+  //   if(!userData || !userData._id){
+  //       console.log("returning from setup");
+  //       return;
+  //   }
+    //   socket.join(userData._id);
+    //   socket.emit("connected");
+    // console.log("in setup");
+    // });
   
-    socket.on("join chat", (room) => {
-      socket.join(room);
-      console.log("User Joined Room: " + room);
-    });
+    // socket.on("join chat", (room) => {
+    //   socket.join(room);
+    //   console.log("User Joined Room: " + room);
+    // });
     // socket.on("typing", (room) => socket.in(room).emit("typing"));
     // socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));
   
-    socket.on("new message", (newMessageRecieved) => {
-      var chat = newMessageRecieved.chat;
-        console.log("happen");
-      if (!chat.users) return console.log("chat.users not defined");
+    // socket.on("new message", (newMessageRecieved) => {
+    //   var chat = newMessageRecieved.chat;
+    //     console.log("happen");
+    //   if (!chat.users) return console.log("chat.users not defined");
   
-      chat.users.forEach((user) => {
-        if (user._id == newMessageRecieved.sender._id) return;
-        console.log("got the memo`");
-        socket.in(user._id).emit("message recieved", newMessageRecieved);
-      });
-    });
+    //   chat.users.forEach((user) => {
+    //     if (user._id == newMessageRecieved.sender._id) return;
+    //     console.log("got the memo`");
+    //     socket.in(user._id).emit("message recieved", newMessageRecieved);
+    //   });
+    // });
   
-    socket.off("setup", () => {
-      console.log("USER DISCONNECTED");
-      socket.leave(userData._id);
-    });
-  });
+    // socket.off("setup", () => {
+    //   console.log("USER DISCONNECTED");
+    //   socket.leave(userData._id);
+    // });
+  // });
