@@ -13,7 +13,7 @@ const messageRoutes = require('./router/messageRoutes');
 
 
 const corsOptions = {
-    origin: "http://localhost:3000",
+    origin: true,
     credentials: true
 }
 app.use(cors(corsOptions));
@@ -28,7 +28,7 @@ app.use(cors(corsOptions));
     require('./db/conn')
     
     
-    const PORT = process.env.PORT;
+    const PORT = 5000;
     
     
     
