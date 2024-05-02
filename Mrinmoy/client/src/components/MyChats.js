@@ -29,7 +29,7 @@ const MyChats = ({ fetchAgain }) => {
             },
             withCredentials: true,
           }
-          const {data} = await axios.get("http://localhost:5000/api/chat", config);
+          const {data} = await axios.get("https://college-connect-backend-dmpz.onrender.com/api/chat", config);
           setChats(data);
         } catch (error) {
           toast({

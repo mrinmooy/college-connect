@@ -32,7 +32,7 @@ const Signup = () => {
 
     const {name, email, phone, password, cpassword} = user;
 
-    const res = await fetch('http://localhost:5000/register', {
+    const res = await fetch('https://college-connect-backend-dmpz.onrender.com/register', {
       method:"POST",
       headers:{
         "Content-Type" : "application/json"

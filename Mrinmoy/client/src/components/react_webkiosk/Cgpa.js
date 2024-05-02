@@ -16,7 +16,7 @@ const Cgpa = () => {
             const requestBody = new URLSearchParams({ user, dob, pass }).toString();
 
             try {
-                const response = await fetch('http://localhost:5000/fetch-cgpa', {
+                const response = await fetch('https://college-connect-backend-dmpz.onrender.com/fetch-cgpa', {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: requestBody

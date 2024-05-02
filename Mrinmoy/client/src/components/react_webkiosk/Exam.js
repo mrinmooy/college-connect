@@ -24,7 +24,7 @@ const Exam = () => {
       pass: pass
     }).toString();
 
-    fetch('http://localhost:5000/fetch-exam', {
+    fetch('https://college-connect-backend-dmpz.onrender.com/fetch-exam', {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

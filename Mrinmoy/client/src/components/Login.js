@@ -16,7 +16,7 @@ function Login() {
 
   const loginUser = async (e) => {
     e.preventDefault()
-    const res = await fetch('http://localhost:5000/signin', {
+    const res = await fetch('https://college-connect-backend-dmpz.onrender.com/signin', {
       credentials: 'include',
       method:"POST",
       headers:{

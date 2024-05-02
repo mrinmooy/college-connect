@@ -7,7 +7,7 @@ import axios from 'axios'
 import ScrollableChat from './ScrollableChat'
 
 import io from "socket.io-client";
-const ENDPOINT = "http://localhost:5000"; 
+const ENDPOINT = "https://college-connect-backend-dmpz.onrender.com"; 
 var socket, selectedChatCompare;  
 
 const SingleChat = ({fetchAgan, setFetchAgain}) => {
@@ -35,7 +35,7 @@ const SingleChat = ({fetchAgan, setFetchAgain}) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/message/${selectedChat._id}`,
+        `https://college-connect-backend-dmpz.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       // console.log(data);
@@ -70,7 +70,7 @@ const SingleChat = ({fetchAgan, setFetchAgain}) => {
               };
               
               const { data } = await axios.post(
-                "http://localhost:5000/api/message",
+                "https://college-connect-backend-dmpz.onrender.com/api/message",
                 {
                   content: newMessage,
                   chatId: selectedChat,
